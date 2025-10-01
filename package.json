@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@google/genai": "^1.21.0",
+    "dotenv": "^16.4.5",
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
     "@neondatabase/serverless": "^0.10.4",
