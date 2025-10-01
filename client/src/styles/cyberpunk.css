@@ -1,0 +1,244 @@
+/* Cyberpunk Animations and Effects */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotateX(0deg); }
+  50% { transform: translateY(-20px) rotateX(5deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.4); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-1px); }
+  40% { transform: translateY(1px); }
+  60% { transform: translateY(-1px); }
+  80% { transform: translateY(1px); }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  75% { opacity: 0.9; }
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(100vh) scaleY(0); }
+  50% { transform: translateY(50vh) scaleY(1); }
+  100% { transform: translateY(-100vh) scaleY(0); }
+}
+
+@keyframes matrix-rain {
+  0% { opacity: 0; transform: translateY(-100px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(100vh); }
+}
+
+/* Animation Classes */
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.glitch-text {
+  animation: glitch-1 0.3s ease-in-out infinite alternate;
+}
+
+.glitch-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: hsl(var(--primary));
+  z-index: -1;
+  animation: glitch-2 0.3s ease-in-out infinite alternate;
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 10px hsl(var(--primary) / 0.5),
+    inset 0 0 10px hsl(var(--primary) / 0.1);
+  border: 1px solid hsl(var(--primary) / 0.3);
+}
+
+.neon-text {
+  text-shadow: 
+    0 0 10px hsl(var(--primary) / 0.8),
+    0 0 20px hsl(var(--primary) / 0.5),
+    0 0 30px hsl(var(--primary) / 0.3);
+}
+
+/* Background Grid Pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glitch Overlay */
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.03) 50%,
+    transparent 100%
+  );
+  animation: glitch-1 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Holographic Effect */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    hsl(var(--primary) / 0.1) 0%,
+    hsl(var(--accent) / 0.1) 25%,
+    hsl(var(--primary) / 0.1) 50%,
+    hsl(var(--accent) / 0.1) 75%,
+    hsl(var(--primary) / 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: holographic 3s ease infinite;
+}
+
+@keyframes holographic {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+/* Terminal Cursor */
+.terminal-cursor::after {
+  content: '▋';
+  color: hsl(var(--primary));
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Scan Line Effect */
+.scan-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    hsl(var(--primary) / 0.05) 2px,
+    hsl(var(--primary) / 0.05) 4px
+  );
+  pointer-events: none;
+}
+
+/* Neural Network Lines */
+.neural-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.6) 50%,
+    transparent 100%
+  );
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Cyberpunk Button Effects */
+.cyber-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+  border: 1px solid hsl(var(--primary) / 0.3);
+  transition: all 0.3s ease;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.3) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+/* Data Visualization */
+.data-viz-line {
+  stroke: hsl(var(--primary));
+  stroke-width: 2;
+  fill: none;
+  animation: draw-line 2s ease-in-out infinite;
+}
+
+@keyframes draw-line {
+  0% { stroke-dasharray: 0 100; }
+  50% { stroke-dasharray: 50 50; }
+  100% { stroke-dasharray: 100 0; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .floating-animation {
+    animation-duration: 4s;
+  }
+  
+  .glitch-text,
+  .glitch-text::before {
+    animation-duration: 0.5s;
+  }
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Focus States for Accessibility */
+.cyber-focus:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}

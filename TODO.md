@@ -1,0 +1,6 @@
+- [ ] Run the development server using `npm run dev`
+- [ ] Launch browser at http://localhost:5000
+- [ ] Test navigation to AI Capabilities section by clicking the link
+- [ ] Verify the Code Editor is visible and accessible in the AI Capabilities section
+- [ ] Test navigation to Contact section by clicking the link
+- [ ] Close the browser after testing
