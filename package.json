@@ -7,7 +7,7 @@
     "dev": "set NODE_ENV=development && tsx server/index.ts",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "cross-env NODE_ENV=production node App.tsx",
-    "check": "tsc",
+    "build": "tsc",
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
